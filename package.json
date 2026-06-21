@@ -1,0 +1,26 @@
+{
+  "name": "top-knightstravails",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndriySydorchuk/TOP-knightsTravails.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndriySydorchuk/TOP-knightsTravails/issues"
+  },
+  "homepage": "https://github.com/AndriySydorchuk/TOP-knightsTravails#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^8.0.2",
+    "jest": "^30.4.2"
+  }
+}
