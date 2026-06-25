@@ -4,7 +4,7 @@ import { getMoves } from "./getMoves";
 export function knightMoves(start, end) {
   if (isEqual(start, end)) return [start];
 
-  const [queue, visited] = traverseUntilFound(start, end);
+  const queue = traverseUntilFound(start, end);
 
   return reconstructPath(queue, start, end);
 }
@@ -17,7 +17,7 @@ function traverseUntilFound(start, end) {
     for (const pair of line) {
       const [parent, child] = pair;
 
-      if (isEqual(child, end)) return [queue, visited];
+      if (isEqual(child, end)) return queue;
 
       if (visited.find((position) => isEqual(position, child))) continue;
 
