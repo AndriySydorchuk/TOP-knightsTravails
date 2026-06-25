@@ -13,12 +13,9 @@ function traverseUntilFound(start, end) {
   const visited = [start];
   const queue = [getMoves(start)];
 
-  for (let i = 0; i < queue.length; i++) {
-    const line = queue[i];
-    for (let j = 0; j < line.length; j++) {
-      const pair = line[j];
-      const parent = pair[0];
-      const child = pair[1];
+  for (const line of queue) {
+    for (const pair of line) {
+      const [parent, child] = pair;
 
       if (isEqual(child, end)) return [queue, visited];
 
@@ -34,13 +31,10 @@ function reconstructPath(queue, start, end) {
   const path = [];
   let tmp = end;
 
-  for (let i = queue.length - 1; i >= 0; i--) {
-    const line = queue[i];
-
-    for (let j = 0; j < line.length; j++) {
-      const pair = line[j];
-      const parent = pair[0];
-      const child = pair[1];
+  queue.reverse();
+  for (const line of queue) {
+    for (const pair of line) {
+      const [parent, child] = pair;
 
       if (isEqual(child, tmp)) {
         if (path.some((position) => isEqual(position, parent))) continue;
@@ -49,8 +43,8 @@ function reconstructPath(queue, start, end) {
         tmp = parent;
 
         if (isEqual(parent, start)) {
-          path.reverse();
-          path.push(end);
+          path.reverse().push(end);
+
           return path;
         }
 
